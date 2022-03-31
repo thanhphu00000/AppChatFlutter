@@ -7,3 +7,11 @@ class ChatPage extends StatefulWidget {
   @override
   _ChatPageState createState() => _ChatPageState();
 }
+class _ChatPageState extends State<ChatPage> {
+  List<ChatUsers> chatUsers = [
+    ChatUsers(
+        text: "Mạnh Thế Tài",
+        secondaryText: "Toi la sinh vien nam 3",
+        image: "images/userImage1.jpg",
+        time: "Đang hoạt động")
+  ];
