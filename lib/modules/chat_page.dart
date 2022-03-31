@@ -7,6 +7,7 @@ class ChatPage extends StatefulWidget {
   @override
   _ChatPageState createState() => _ChatPageState();
 }
+
 class _ChatPageState extends State<ChatPage> {
   List<ChatUsers> chatUsers = [
     ChatUsers(
@@ -84,3 +85,24 @@ class _ChatPageState extends State<ChatPage> {
                 ),
               ),
             ),
+            ListView.builder(
+              itemCount: chatUsers.length,
+              shrinkWrap: true,
+              padding: EdgeInsets.only(top: 16),
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return ChatUsersList(
+                  text: chatUsers[index].text,
+                  secondaryText: chatUsers[index].secondaryText,
+                  image: chatUsers[index].image,
+                  time: chatUsers[index].time,
+                  isMessageRead: (index == 0 || index == 3) ? true : false,
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
